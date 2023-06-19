@@ -21,7 +21,7 @@ const theme = createTheme({
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <ThemeProvider theme={theme}>
         <NavBar />
         <Box sx={{ width: "100%", mx: 5, mt: 5 }}>
