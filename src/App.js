@@ -11,24 +11,39 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
 
-const theme = createTheme({
-  typography: {
-    h1: {
-      fontSize: "1.75rem",
-      fontWeight: 700,
-    },
-    // Add more custom typography styles as needed
-  },
-});
-
 function App() {
-  // Detect user's preferred color scheme
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
   // State for dark mode and whether the user has manually toggled the theme
   const [darkMode, setDarkMode] = React.useState(
     localStorage.getItem("darkMode") === "true"
   );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: darkMode ? "dark" : "light",
+        },
+        typography: {
+          h1: {
+            fontSize: "2rem",
+            fontWeight: 700,
+          },
+          h2: {
+            fontSize: "1.75rem",
+            fontWeight: 500,
+          },
+          h3: {
+            fontSize: "1.5rem",
+            fontWeight: 400,
+          },
+          // Add more custom typography styles as needed
+        },
+      }),
+    [darkMode]
+  );
+
+  // Detect user's preferred color scheme
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   const [userHasToggled, setUserHasToggled] = React.useState(
     localStorage.getItem("userHasToggled") === "true"
@@ -55,15 +70,33 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <NavBar darkMode={darkMode} handleThemeToggle={handleThemeToggle} />
-        <Box sx={{ width: "100%", px: 5, mt: 5 }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+          }}
+        >
+          <NavBar darkMode={darkMode} handleThemeToggle={handleThemeToggle} />
+          <Box
+            sx={{
+              width: "100%",
+              px: {
+                xs: 2,
+                md: 5,
+              },
+              mt: 5,
+              flex: "1 0 auto",
+            }}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Box>
+          <Footer darkMode={darkMode} />
         </Box>
-        <Footer darkMode={darkMode} />
       </ThemeProvider>
     </Router>
   );
