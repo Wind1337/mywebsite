@@ -9,10 +9,9 @@ function Footer({ darkMode }) {
   return (
     <Box
       sx={{
-        position: "fixed",
-        bottom: 0,
         width: "100%",
         textAlign: "center",
+        mt: 5,
         p: 1,
         borderTop: 1,
         borderColor: "grey.500",
