@@ -16,10 +16,9 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useMediaQuery } from "@mui/material";
 import MemoryIcon from "@mui/icons-material/Memory";
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import Brightness3Icon from '@mui/icons-material/Brightness3';
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import Brightness3Icon from "@mui/icons-material/Brightness3";
 import CssBaseline from "@mui/material/CssBaseline";
 
 const pages = [
@@ -28,39 +27,8 @@ const pages = [
   { name: "Contact", path: "/contact" },
 ];
 
-function NavBar() {
+function NavBar({ darkMode, handleThemeToggle}) {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
-
-  // Detect user's preferred color scheme
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
-  // State for dark mode and whether the user has manually toggled the theme
-  const [darkMode, setDarkMode] = React.useState(
-    localStorage.getItem("darkMode") === "true"
-  );
-
-  const [userHasToggled, setUserHasToggled] = React.useState(
-    localStorage.getItem("userHasToggled") === "true"
-  );
-
-  // Update localStorage whenever darkMode or userHasToggled changes
-  React.useEffect(() => {
-    localStorage.setItem("darkMode", darkMode ? "true" : "false");
-    localStorage.setItem("userHasToggled", userHasToggled ? "true" : "false");
-  }, [darkMode, userHasToggled]);
-
-  React.useEffect(() => {
-    // Update the darkMode state only if the user hasn't manually toggled the theme
-    if (!userHasToggled) {
-      setDarkMode(prefersDarkMode);
-    }
-  }, [prefersDarkMode, userHasToggled]);
-
-  const handleThemeToggle = () => {
-    // When the user manually toggles the theme, update both states
-    setUserHasToggled(true);
-    setDarkMode(!darkMode);
-  };
 
   const handleOpenNavMenu = () => {
     setIsDrawerOpen(true);
@@ -99,7 +67,8 @@ function NavBar() {
               <MenuIcon />
             </IconButton>
 
-            <Drawer disableScrollLock={true}
+            <Drawer
+              disableScrollLock={true}
               open={isDrawerOpen}
               onClose={handleCloseNavMenu}
               sx={{
@@ -133,15 +102,19 @@ function NavBar() {
                   }
                   label={
                     darkMode ? (
-                      <Brightness3Icon sx={{ display: { xs: "flex", md: "none" } }} />
+                      <Brightness3Icon
+                        sx={{ display: { xs: "flex", md: "none" } }}
+                      />
                     ) : (
-                      <Brightness7Icon sx={{ display: { xs: "flex", md: "none" } }} />
+                      <Brightness7Icon
+                        sx={{ display: { xs: "flex", md: "none" } }}
+                      />
                     )
                   }
                 />
               </FormGroup>
             </Drawer>
-            
+
             <MemoryIcon
               sx={{ display: { xs: "flex", md: "flex" }, mr: 1, ml: 1 }}
             />
@@ -187,9 +160,13 @@ function NavBar() {
                 }
                 label={
                   darkMode ? (
-                    <Brightness3Icon sx={{ display: { xs: "none", md: "flex" } }} />
+                    <Brightness3Icon
+                      sx={{ display: { xs: "none", md: "flex" } }}
+                    />
                   ) : (
-                    <Brightness7Icon sx={{ display: { xs: "none", md: "flex" } }} />
+                    <Brightness7Icon
+                      sx={{ display: { xs: "none", md: "flex" } }}
+                    />
                   )
                 }
               />
