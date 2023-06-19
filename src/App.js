@@ -21,10 +21,10 @@ const theme = createTheme({
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <ThemeProvider theme={theme}>
         <NavBar />
-        <Box sx={{ width: "100%", mx: 5, mt: 5 }}>
+        <Box sx={{ width: "100%", px: 5, mt: 5 }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
