@@ -9,6 +9,10 @@ function Home() {
         carlsen.tech
       </Typography>
       <Typography variant="body1" gutterBottom>
+        Website of Carlsen Teo
+      </Typography>
+      <br />
+      <Typography variant="body1" gutterBottom>
         Work in Progress
       </Typography>
     </Box>

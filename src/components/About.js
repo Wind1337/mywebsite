@@ -1,12 +1,13 @@
 import React from "react";
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 function About() {
   return (
-    <div>
+    <Box>
       <Typography variant="h1" gutterBottom>About Me</Typography>
-      <p>This is the about page.</p>
-    </div>
+      <Typography variant="body1" gutterBottom>This is the about page.</Typography>
+    </Box>
   );
 }
 
