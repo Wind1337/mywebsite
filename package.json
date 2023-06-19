@@ -1,6 +1,7 @@
 {
   "name": "mywebsite",
   "version": "0.1.0",
+  "homepage": "https://wind1337.github.io/mywebsite/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
