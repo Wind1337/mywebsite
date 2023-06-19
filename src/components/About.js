@@ -101,7 +101,7 @@ function About() {
               </Typography>
               <Typography variant="body2">{project.time}</Typography>
               <Button
-                sx={{ p: 0, pt: 1, mt: 1 }}
+                sx={{ p: 0, py: 1, mt: 1 }}
                 variant="text"
                 size="small"
                 color="primary"
