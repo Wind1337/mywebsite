@@ -85,7 +85,6 @@ function App() {
                 xs: 2,
                 md: 5,
               },
-              mt: 5,
               flex: "1 0 auto",
             }}
           >
