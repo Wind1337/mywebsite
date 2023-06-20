@@ -56,7 +56,7 @@ function About() {
         >
           <Box>
             <Typography variant="h3" gutterBottom>
-              Hi, I'm Carlsen Teo.
+              Hi, I'm <span style={{ color: theme.palette.text.secondary }}>Carlsen Teo.</span>
             </Typography>
             <Typography variant="body1">
               This page is a showcase of my education background and projects.

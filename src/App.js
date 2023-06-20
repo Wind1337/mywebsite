@@ -31,6 +31,9 @@ function App() {
                 secondary: {
                   main: '#f50057',
                 },
+                text: {
+                  secondary: '#ffc107',
+                },
               }
             : {
                 // palette values for light mode
@@ -39,6 +42,9 @@ function App() {
                 },
                 secondary: {
                   main: '#f50057',
+                },
+                text: {
+                  secondary: '#4caf50',
                 },
               }),
         },
