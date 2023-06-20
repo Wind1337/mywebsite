@@ -21,7 +21,26 @@ function App() {
     () =>
       createTheme({
         palette: {
-          mode: darkMode ? "dark" : "light",
+          mode: darkMode ? 'dark' : 'light',
+          ...(darkMode
+            ? {
+                // palette values for dark mode
+                primary: {
+                  main: '#90caf9',
+                },
+                secondary: {
+                  main: '#f50057',
+                },
+              }
+            : {
+                // palette values for light mode
+                primary: {
+                  main: '#546e7a',
+                },
+                secondary: {
+                  main: '#f50057',
+                },
+              }),
         },
         typography: {
           h1: {
@@ -75,6 +94,8 @@ function App() {
             display: "flex",
             flexDirection: "column",
             minHeight: "100vh",
+            color: theme.palette.text.primary,
+            bgcolor: theme.palette.background.default,
           }}
         >
           <NavBar darkMode={darkMode} handleThemeToggle={handleThemeToggle} />

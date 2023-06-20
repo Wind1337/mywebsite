@@ -151,7 +151,7 @@ function About() {
                   sx={{ p: 0, py: 1, mt: 1 }}
                   variant="text"
                   size="small"
-                  color="primary"
+                  color="secondary"
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
