@@ -9,6 +9,10 @@ import Paper from "@mui/material/Paper";
 import { useTheme } from "@mui/material/styles";
 
 function About() {
+  React.useEffect(() => {
+    document.title = "Carlsen Teo | About";
+  }, []);
+
   const theme = useTheme();
 
   // Array of education details

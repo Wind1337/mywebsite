@@ -4,6 +4,10 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 function Contact() {
+  React.useEffect(() => {
+    document.title = "Carlsen Teo | Contact";
+  }, []);
+
   return (
     <Container maxWidth="xl">
       <Box sx={{ flexGrow: 1 }}>
