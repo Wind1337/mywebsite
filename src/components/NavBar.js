@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Link as RouterLink } from 'react-router-dom';
-import Link from '@mui/material/Link';
+import { Link as RouterLink } from "react-router-dom";
+import Link from "@mui/material/Link";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -39,129 +39,52 @@ function NavBar({ darkMode, handleThemeToggle }) {
     setIsDrawerOpen(false);
   };
 
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: darkMode ? "dark" : "light",
-        },
-      }),
-    [darkMode]
-  );
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <IconButton
-              size="large"
-              aria-label="open navbar"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-              edge="start"
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton>
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <IconButton
+            size="large"
+            aria-label="open navbar"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            color="inherit"
+            edge="start"
+            sx={{ display: { xs: "block", md: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
 
-            <Drawer
-              disableScrollLock={true}
-              open={isDrawerOpen}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-              PaperProps={{
-                sx: { width: "50%" },
-              }}
-            >
-              <List>
-                {pages.map((page) => (
-                  <ListItem key={page.name}>
-                    <ListItemButton
-                      component={Link}
-                      to={page.path}
-                      onClick={handleCloseNavMenu}
-                    >
-                      {page.name}
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-              <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Switch
-                      sx={{ display: { xs: "flex", md: "none" }, ml: 2 }}
-                      checked={darkMode}
-                      onChange={handleThemeToggle}
-                    />
-                  }
-                  label={
-                    darkMode ? (
-                      <Brightness3Icon
-                        sx={{ display: { xs: "flex", md: "none" } }}
-                      />
-                    ) : (
-                      <Brightness7Icon
-                        sx={{ display: { xs: "flex", md: "none" } }}
-                      />
-                    )
-                  }
-                />
-              </FormGroup>
-            </Drawer>
-
-            <Link
-              component={RouterLink}
-              to="/"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                textDecoration: "none",
-                color: "inherit",
-              }}
-            >
-              <MemoryIcon
-                sx={{ display: { xs: "flex", md: "flex" }, mr: 1, ml: 1 }}
-              />
-              <Typography
-                variant="h6"
-                noWrap
-                sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".15rem",
-                }}
-              >
-                CARLSEN.TECH
-              </Typography>
-            </Link>
-
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Drawer
+            disableScrollLock={true}
+            open={isDrawerOpen}
+            onClose={handleCloseNavMenu}
+            sx={{
+              display: { xs: "block", md: "none" },
+            }}
+            PaperProps={{
+              sx: { width: "50%" },
+            }}
+          >
+            <List>
               {pages.map((page) => (
-                <Button
-                  key={page.name}
-                  component={RouterLink}
-                  to={page.path}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page.name}
-                </Button>
+                <ListItem key={page.name}>
+                  <ListItemButton
+                    component={Link}
+                    to={page.path}
+                    onClick={handleCloseNavMenu}
+                  >
+                    {page.name}
+                  </ListItemButton>
+                </ListItem>
               ))}
-            </Box>
-
+            </List>
             <FormGroup>
               <FormControlLabel
                 control={
                   <Switch
-                    sx={{ display: { xs: "none", md: "flex" } }}
+                    sx={{ display: { xs: "flex", md: "none" }, ml: 2 }}
                     checked={darkMode}
                     onChange={handleThemeToggle}
                   />
@@ -169,20 +92,84 @@ function NavBar({ darkMode, handleThemeToggle }) {
                 label={
                   darkMode ? (
                     <Brightness3Icon
-                      sx={{ display: { xs: "none", md: "flex" } }}
+                      sx={{ display: { xs: "flex", md: "none" } }}
                     />
                   ) : (
                     <Brightness7Icon
-                      sx={{ display: { xs: "none", md: "flex" } }}
+                      sx={{ display: { xs: "flex", md: "none" } }}
                     />
                   )
                 }
               />
             </FormGroup>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </ThemeProvider>
+          </Drawer>
+
+          <Link
+            component={RouterLink}
+            to="/"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              color: "inherit",
+            }}
+          >
+            <MemoryIcon
+              sx={{ display: { xs: "flex", md: "flex" }, mr: 1, ml: 1 }}
+            />
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".15rem",
+              }}
+            >
+              CARLSEN.TECH
+            </Typography>
+          </Link>
+
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page) => (
+              <Button
+                key={page.name}
+                component={RouterLink}
+                to={page.path}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                {page.name}
+              </Button>
+            ))}
+          </Box>
+
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Switch
+                  sx={{ display: { xs: "none", md: "flex" } }}
+                  checked={darkMode}
+                  onChange={handleThemeToggle}
+                />
+              }
+              label={
+                darkMode ? (
+                  <Brightness3Icon
+                    sx={{ display: { xs: "none", md: "flex" } }}
+                  />
+                ) : (
+                  <Brightness7Icon
+                    sx={{ display: { xs: "none", md: "flex" } }}
+                  />
+                )
+              }
+            />
+          </FormGroup>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
 
