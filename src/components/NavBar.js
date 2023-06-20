@@ -16,11 +16,9 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MemoryIcon from "@mui/icons-material/Memory";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Brightness3Icon from "@mui/icons-material/Brightness3";
-import CssBaseline from "@mui/material/CssBaseline";
 
 const pages = [
   { name: "Home", path: "/" },
