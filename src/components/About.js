@@ -16,11 +16,15 @@ function About() {
       title: "Singapore Institute of Technology - University of Glasgow",
       description: "Bachelor of Science in Computing Science",
       time: "2021 - 2024",
+      image: "/images/logos/SIT.png",
+      image2:
+        "/images/logos/UofG.png",
     },
     {
       title: "Ngee Ann Polytechnic",
       description: "Diploma in Information Technology",
       time: "2016 - 2019",
+      image: "/images/logos/NgeeAnnPoly.png"
     },
   ];
 
@@ -49,14 +53,29 @@ function About() {
       </Typography>
       <Paper
         elevation={3}
-        sx={{ p: 2, bgcolor: theme.palette.background.paper }}
+        sx={{
+          p: 2,
+          bgcolor: theme.palette.background.paper,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
       >
-        <Typography variant="h3" gutterBottom>
-          Hi, I'm Carlsen Teo.
-        </Typography>
-        <Typography variant="body1">
-          This page is a showcase of my education background and projects.
-        </Typography>
+        <Box>
+          <Typography variant="h3" gutterBottom>
+            Hi, I'm Carlsen Teo.
+          </Typography>
+          <Typography variant="body1">
+            This page is a showcase of my education background and projects.
+          </Typography>
+        </Box>
+        <Box sx={{ pl: 2, alignItems: "center" }}>
+          <img
+            src="/images/carlsen.png"
+            alt="Carlsen Teo"
+            style={{ maxWidth: "150px", height: "auto" }}
+          />
+        </Box>
       </Paper>
 
       <Typography sx={{ my: 5 }} variant="h2" gutterBottom>
@@ -68,15 +87,50 @@ function About() {
           <Grid item xs={12} md={6} key={index}>
             <Paper
               elevation={3}
-              sx={{ p: 2, bgcolor: theme.palette.background.paper }}
+              sx={{
+                p: 2,
+                bgcolor: theme.palette.background.paper,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
             >
-              <Typography variant="h3" gutterBottom>
-                {education.title}
-              </Typography>
-              <Typography variant="body1" sx={{ pt: 0.8 }}>
-                {education.description}
-              </Typography>
-              <Typography variant="body2">{education.time}</Typography>
+              <Box>
+                <Typography variant="h3" gutterBottom>
+                  {education.title}
+                </Typography>
+                <Typography variant="body1" sx={{ pt: 0.8 }}>
+                  {education.description}
+                </Typography>
+                <Typography variant="body2">{education.time}</Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: {
+                    xs: "column",
+                    md: "row",
+                  },
+                  alignItems: "center",
+                }}
+              >
+                <Box sx={{ pl: 2 }}>
+                  <img
+                    src={education.image}
+                    alt={education.title}
+                    style={{ maxWidth: "75px", maxHeight: "75px" }}
+                  />
+                </Box>
+                {education.image2 && (
+                  <Box sx={{ pl: 2 }}>
+                    <img
+                      src={education.image2}
+                      alt={`${education.title} 2`}
+                      style={{ maxWidth: "75px", maxHeight: "75px" }}
+                    />
+                  </Box>
+                )}
+              </Box>
             </Paper>
           </Grid>
         ))}
