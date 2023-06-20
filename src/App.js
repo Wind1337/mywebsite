@@ -82,8 +82,7 @@ function App() {
             sx={{
               width: "100%",
               px: {
-                xs: 2,
-                md: 5,
+                xs: 1
               },
               flex: "1 0 auto",
             }}
