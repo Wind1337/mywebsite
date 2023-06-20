@@ -115,7 +115,15 @@ function About() {
                     />
                   </Box>
                   {education.image2 && (
-                    <Box sx={{ pl: 2, pt: 2 }}>
+                    <Box
+                      sx={{
+                        pl: 2,
+                        pt: {
+                          xs: 2,
+                          md: 0,
+                        },
+                      }}
+                    >
                       <img
                         src={education.image2}
                         alt={`${education.title} 2`}
