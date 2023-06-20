@@ -101,9 +101,8 @@ function App() {
           <NavBar darkMode={darkMode} handleThemeToggle={handleThemeToggle} />
           <Box
             sx={{
-              width: "100%",
               px: {
-                xs: 1
+                xs: 1.1
               },
               flex: "1 0 auto",
             }}

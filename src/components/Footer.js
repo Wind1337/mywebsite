@@ -12,7 +12,7 @@ function Footer({ darkMode }) {
         width: "100%",
         textAlign: "center",
         mt: 5,
-        p: 1,
+        py: 1,
         borderTop: 1,
         borderColor: "grey.500",
       }}
