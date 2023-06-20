@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -27,7 +28,7 @@ const pages = [
   { name: "Contact", path: "/contact" },
 ];
 
-function NavBar({ darkMode, handleThemeToggle}) {
+function NavBar({ darkMode, handleThemeToggle }) {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
   const handleOpenNavMenu = () => {
@@ -115,32 +116,39 @@ function NavBar({ darkMode, handleThemeToggle}) {
               </FormGroup>
             </Drawer>
 
-            <MemoryIcon
-              sx={{ display: { xs: "flex", md: "flex" }, mr: 1, ml: 1 }}
-            />
-            <Typography
-              variant="h6"
-              noWrap
-              component={Link}
+            <Link
+              component={RouterLink}
               to="/"
               sx={{
-                mr: 2,
-                display: { xs: "flex", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".15rem",
-                color: "inherit",
+                display: "flex",
+                alignItems: "center",
                 textDecoration: "none",
+                color: "inherit",
               }}
             >
-              CARLSEN.TECH
-            </Typography>
+              <MemoryIcon
+                sx={{ display: { xs: "flex", md: "flex" }, mr: 1, ml: 1 }}
+              />
+              <Typography
+                variant="h6"
+                noWrap
+                sx={{
+                  mr: 2,
+                  display: { xs: "flex", md: "flex" },
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".15rem",
+                }}
+              >
+                CARLSEN.TECH
+              </Typography>
+            </Link>
 
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
                   key={page.name}
-                  component={Link}
+                  component={RouterLink}
                   to={page.path}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
