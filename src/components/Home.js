@@ -10,12 +10,28 @@ function Home() {
 
   return (
     <Container maxWidth="xl">
-      <Box sx={{ flexGrow: 1 }}>
-        <Typography sx={{ my: 5 }} variant="h1" gutterBottom>
-          Website of Carlsen Teo
+      <Box sx={{ flexGrow: 1, textAlign: "center" }}>
+        <Typography
+          sx={{
+            mt: 5,
+            fontFamily: "Helvetica Neue",
+            fontSize: "3rem",
+          }}
+          variant="h1"
+        >
+          Carlsen Teo
         </Typography>
-        <Typography variant="body1" gutterBottom>
-          Work in Progress while I think of something witty to write here
+        <Box
+          sx={{
+            border: 1,
+            borderColor: "divider",
+            my: 2,
+            width: "50%",
+            mx: "auto",
+          }}
+        ></Box>
+        <Typography variant="body1" gutterBottom sx={{ fontFamily: "Arial" }}>
+          Year 2 CS Undergraduate
         </Typography>
       </Box>
     </Container>

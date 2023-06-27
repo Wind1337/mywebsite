@@ -45,7 +45,16 @@ function About() {
   return (
     <Container maxWidth="xl">
       <Box sx={{ flexGrow: 1 }}>
-        <Typography sx={{ my: 5 }} variant="h1" gutterBottom>
+        <Typography
+          sx={{
+            mt: 5,
+            fontFamily: "Helvetica Neue",
+            fontSize: "2.5rem",
+            textAlign: "center",
+          }}
+          variant="h1"
+          gutterBottom
+        >
           About Me
         </Typography>
         <Paper
@@ -60,7 +69,10 @@ function About() {
         >
           <Box>
             <Typography variant="h3" gutterBottom>
-              Hi, I'm <span style={{ color: theme.palette.text.secondary }}>Carlsen Teo.</span>
+              Hi, I'm{" "}
+              <span style={{ color: theme.palette.text.secondary }}>
+                Carlsen Teo.
+              </span>
             </Typography>
             <Typography variant="body1">
               This page is a showcase of my education background and projects.
