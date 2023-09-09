@@ -14,7 +14,6 @@ function Home() {
         <Typography
           sx={{
             mt: 5,
-            fontFamily: "Helvetica Neue",
             fontSize: "3rem",
           }}
           variant="h1"
