@@ -18,21 +18,23 @@ function Contact() {
 
   const [open, setOpen] = React.useState(false);
   const [formKey, setFormKey] = React.useState(Math.random());
+  const [recaptchaValue, setRecaptchaValue] = React.useState(null);
   const [recaptchaError, setRecaptchaError] = React.useState(false);
 
   const recaptchaRef = React.useRef();
 
   const handleRecaptchaResponse = (value) => {
+    setRecaptchaValue(value);
     setRecaptchaError(false); // reset error state when reCAPTCHA is completed
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // if (!recaptchaValue) {
-    //   setRecaptchaError(true); // set error state if reCAPTCHA is not completed
-    //   return;
-    // }
+    if (!recaptchaValue) {
+      setRecaptchaError(true); // set error state if reCAPTCHA is not completed
+      return;
+    }
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
