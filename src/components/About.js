@@ -40,6 +40,12 @@ function About() {
         "Python script to ping Mullvad VPN servers. Able to simultaneously ping multiple servers asynchronously.",
       link: "https://github.com/Wind1337/mullvad-ping-py",
     },
+    {
+      title: "Laundry Scraper",
+      description:
+        "Python script using Selenium to scrape laundry machine availability from CircuitView (UK Laundry Provider) website.",
+      link: "https://github.com/Wind1337/Laundry-Scraper",
+    },
   ];
 
   return (
