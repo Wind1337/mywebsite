@@ -1,4 +1,5 @@
 import React from "react";
+import { TypeAnimation } from "react-type-animation";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -29,9 +30,20 @@ function Home() {
             mx: "auto",
           }}
         ></Box>
-        <Typography variant="body1" gutterBottom sx={{ fontFamily: "Arial" }}>
-          Year 2 CS Undergraduate
-        </Typography>
+        <TypeAnimation
+          sequence={[
+            "I am a CS Undergraduate",
+            2000,
+            "I am a Programmer",
+            2000,
+            "I am a Foodie",
+            2000,
+          ]}
+          wrapper="span"
+          speed={50}
+          style={{ fontSize: "2em", display: "inline-block" }}
+          repeat={Infinity}
+        />
       </Box>
     </Container>
   );
