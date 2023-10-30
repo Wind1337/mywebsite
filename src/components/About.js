@@ -46,6 +46,14 @@ function About() {
         "Python script using Selenium to scrape laundry machine availability from CircuitView (UK Laundry Provider) website.",
       link: "https://github.com/Wind1337/Laundry-Scraper",
     },
+    {
+      title: "BusWhere",
+      description: `Full stack mobile application that provides real-time bus arrival estimates for Singapore bus stops based on data from LTA DataMall. 
+        Self-written API to handle data processing and caching. 
+        Built with Expo (React Native), FastAPI (Python) with performance critical functions in Gin (Go), and Redis to cache responses. 
+        Mobile application CI pipeline built with GitHub Actions.`,
+      link: "https://play.google.com/store/apps/details?id=com.wind1337.buswhere",
+    },
   ];
 
   return (
