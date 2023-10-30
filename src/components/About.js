@@ -38,12 +38,24 @@ function About() {
       title: "Mullvad Ping Python Script",
       description:
         "Python script to ping Mullvad VPN servers. Able to simultaneously ping multiple servers asynchronously.",
+      tech: [
+        {
+          name: "Python",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
+        },
+      ],
       link: "https://github.com/Wind1337/mullvad-ping-py",
     },
     {
       title: "Laundry Scraper",
       description:
         "Python script using Selenium to scrape laundry machine availability from CircuitView (UK Laundry Provider) website.",
+      tech: [
+        {
+          name: "Python",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg",
+        },
+      ],
       link: "https://github.com/Wind1337/Laundry-Scraper",
     },
     {
@@ -51,7 +63,26 @@ function About() {
       description: `Full stack mobile application that provides real-time bus arrival estimates for Singapore bus stops based on data from LTA DataMall. 
         Self-written API to handle data processing and caching. 
         Built with Expo (React Native), FastAPI (Python) with performance critical functions in Gin (Go), and Redis to cache responses. 
-        Mobile application CI pipeline built with GitHub Actions.`,
+        Mobile application CI pipeline built with GitHub Actions.
+        Backend deployed with Docker with NGINX as reverse proxy.`,
+      tech: [
+        {
+          name: "React Native",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg",
+        },
+        {
+          name: "FastAPI",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+        },
+        {
+          name: "Gin",
+          icon: "https://raw.githubusercontent.com/gin-gonic/logo/master/color.png",
+        },
+        {
+          name: "Redis",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original-wordmark.svg",
+        },
+      ],
       link: "https://play.google.com/store/apps/details?id=com.wind1337.buswhere",
     },
   ];
@@ -177,9 +208,39 @@ function About() {
                 elevation={3}
                 sx={{ p: 2, bgcolor: theme.palette.background.paper }}
               >
-                <Typography variant="h3" gutterBottom>
-                  {project.title}
-                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography display="inline" variant="h3">
+                    {project.title}
+                  </Typography>
+                  {project.tech.map((tech, index) => (
+                    <span
+                      key={index}
+                      style={{
+                        display: "inline-block",
+                        maxWidth: "36px",
+                        height: "36px",
+                        marginLeft: "0.5rem",
+                        marginRight: "0.5rem",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <img
+                        src={tech.icon}
+                        alt={tech.name}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      />
+                    </span>
+                  ))}
+                </Box>
                 <Typography variant="body1" sx={{ pt: 0.8 }}>
                   {project.description}
                 </Typography>
